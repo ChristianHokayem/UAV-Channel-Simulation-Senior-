@@ -1,9 +1,12 @@
 from random import expovariate
+from time import time
+
+START_TIME = time()
 
 TIME_ADVANCE = 1e-6 #in time unit
-MAX_REAL_TIME = 6000 #in time unit
-AVG_INTERARRIVAL_TIME = 2 #in time unit
-AVG_SERVICE_TIME = 1 #in time unit
+MAX_REAL_TIME = 36000 #in time unit
+AVG_INTERARRIVAL_TIME = 100 #in time unit
+AVG_SERVICE_TIME = 80 #in time unit
 
 MAX_SIM_TIME = int(MAX_REAL_TIME//TIME_ADVANCE)
 
@@ -66,3 +69,6 @@ print("-"*len(wait_time_string))
 print("PACKETS WAITING:", len(future_events))
 print("PACKETS SERVICED:", len(wait_times))
 
+END_TIME = time()
+
+print("SCRIPT TIME:", END_TIME - START_TIME)

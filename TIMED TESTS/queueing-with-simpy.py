@@ -1,11 +1,14 @@
 import simpy
 from random import expovariate
+from time import time
+
+START_TIME = time()
 
 N = 0
 packet_counter = 0
-AVG_INTERARRIVAL_TIME = 1e-4
-AVG_SERVICE_TIME = 1e-5
-MAX_REAL_TIME = 6000
+AVG_INTERARRIVAL_TIME = 100
+AVG_SERVICE_TIME = 80
+MAX_REAL_TIME = 36000
 
 ENVIRONMENT = simpy.Environment()
 SERVER = simpy.Resource(ENVIRONMENT, 1)
@@ -32,9 +35,10 @@ def packet_servicer():
          new_packet.serviced_time = ENVIRONMENT.now
          #print('Packet #{0}: Begins servicing {1:05.2f}'.format(new_packet.Id, new_packet.serviced_time))
          service_duration = expovariate(1/AVG_SERVICE_TIME)
-         new_packet.wait_time = ENVIRONMENT.now - new_packet.arrival_time
          yield ENVIRONMENT.timeout(service_duration)
          #print('Packet #{0}: Serviced at {1:05.2f}'.format(new_packet.Id, ENVIRONMENT.now))
+         new_packet.wait_time = ENVIRONMENT.now - new_packet.arrival_time
+
 
 def packet_generator():
     while True:
@@ -57,4 +61,8 @@ for packet in packet_list:
 
 avg_wait = sum_of_wait/len(packet_list)
 
-print("AVERAGE WAIT TIME IN QUEUE:", avg_wait)
+print("AVERAGE WAIT TIME IN SYSTEM:", avg_wait)
+
+END_TIME = time()
+
+print("SCRIPT TIME:", END_TIME - START_TIME)
