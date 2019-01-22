@@ -10,6 +10,9 @@ AVG_SERVICE_TIME = 1/250 #in time unit
 
 MAX_SIM_TIME = int(MAX_REAL_TIME//TIME_ADVANCE)
 
+def sayHi(name):
+	print("Hi,", name)
+
 def discrete_expovariate_time(mean):
     global TIME_ADVANCE
     return round(expovariate(1/mean)/TIME_ADVANCE)
