@@ -4,9 +4,9 @@ from time import time
 START_TIME = time()
 
 TIME_ADVANCE = 1e-6 #in time unit
-MAX_REAL_TIME = 36000 #in time unit
-AVG_INTERARRIVAL_TIME = 100 #in time unit
-AVG_SERVICE_TIME = 80 #in time unit
+MAX_REAL_TIME = 6000 #in time unit
+AVG_INTERARRIVAL_TIME = 1/97 #in time unit
+AVG_SERVICE_TIME = 1/250 #in time unit
 
 MAX_SIM_TIME = int(MAX_REAL_TIME//TIME_ADVANCE)
 
@@ -27,7 +27,6 @@ def generate_discrete_future_packet_times(start_time = 0, end_time = MAX_SIM_TIM
 
 
 future_events = generate_discrete_future_packet_times()
-#print("Generated packet arrival times:", future_events)
 master_clock = 0
 
 wait_times = []
@@ -55,12 +54,8 @@ while master_clock <= MAX_SIM_TIME:
         else:
             master_clock = next_service
             continue
-
         
     master_clock += 1
-
-#print("Serviced at:", serviced_times)
-#print("Wait times:", wait_times)
 
 wait_time_string = "AVERAGE TOTAL WAIT TIME: " + str((sum(wait_times)/len(wait_times))*TIME_ADVANCE)
 print("-"*len(wait_time_string))
