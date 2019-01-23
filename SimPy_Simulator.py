@@ -45,13 +45,9 @@ def packet_generator():
         arrival_time = expovariate(1/AVG_INTERARRIVAL_TIME)
         yield ENVIRONMENT.timeout(arrival_time)
         ENVIRONMENT.process(packet_servicer())
-        
+
 ENVIRONMENT.process(packet_generator())
 ENVIRONMENT.run(until=MAX_REAL_TIME)
-
-print()
-print("-------------------------------")
-print()
 
 sum_of_wait = 0
 
@@ -61,8 +57,9 @@ for packet in packet_list:
 
 avg_wait = sum_of_wait/len(packet_list)
 
+print("---------------------------------------")
 print("AVERAGE WAIT TIME IN SYSTEM:", avg_wait)
-
+print("---------------------------------------")
 END_TIME = time()
 
 print("SCRIPT TIME:", END_TIME - START_TIME)

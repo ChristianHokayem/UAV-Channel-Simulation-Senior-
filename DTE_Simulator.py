@@ -36,7 +36,7 @@ busy = False
 while master_clock <= MAX_SIM_TIME:
     if len(future_events) == 0:
         break
-    
+
     if not(busy):
         if future_events[0] <= master_clock:
             next_service = master_clock + discrete_expovariate_time(AVG_SERVICE_TIME)
@@ -54,7 +54,7 @@ while master_clock <= MAX_SIM_TIME:
         else:
             master_clock = next_service
             continue
-        
+
     master_clock += 1
 
 wait_time_string = "AVERAGE TOTAL WAIT TIME: " + str((sum(wait_times)/len(wait_times))*TIME_ADVANCE)
