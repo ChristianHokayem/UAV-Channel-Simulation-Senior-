@@ -17,6 +17,18 @@ AVG_INTERARRIVAL_TIME = 1/LAMBDA #in time unit
 AVG_SERVICE_TIME = 1/250 #in time unit
 PACKETS_TARGET = 100000 #number of pcakets to simulate
 
+class TokenBucket:
+    def __init__(self, tokens):
+        self.capacity = float(tokens)
+        self.available_tokens = float(tokens)
+
+    def consume(self, number_of_tokens):
+        if number_of_tokens <= self.available_tokens:
+            self.available_tokens -= number_of_tokens
+        else:
+            return False
+        return True
+
 def discrete_expovariate_time(mean):
     global TIME_ADVANCE
     return round(expovariate(1/mean)/TIME_ADVANCE)
