@@ -1,4 +1,5 @@
 from random import expovariate
+from random import randint
 from time import time
 import argparse
 
@@ -17,6 +18,7 @@ AVG_INTERARRIVAL_TIME = 1/LAMBDA #in time unit
 AVG_SERVICE_TIME = 1/250 #in time unit
 PACKETS_TARGET = 100000 #number of pcakets to simulate
 
+
 class TokenBucket:
     def __init__(self, tokens):
         self.capacity = float(tokens)
@@ -29,26 +31,44 @@ class TokenBucket:
             return False
         return True
 
+
+class Packet:
+    def __init__(self, arrival_date, service_start_date, service_time):
+        self.arrival_date = arrival_date
+        self.service_start_date = service_start_date
+        self.service_time = service_time
+        self.service_end_date = self.service_start_date + self.service_time
+        self.wait = self.service_start_date - self.arrival_date
+        self.priority = randint(1, 4)
+
+
 def discrete_expovariate_time(mean):
     global TIME_ADVANCE
     return round(expovariate(1/mean)/TIME_ADVANCE)
 
-def generate_discrete_future_packet_arrival_times(start_time = 0, avg_interarrival_time = AVG_INTERARRIVAL_TIME):
-    arrival_times = []
-
-    packet_arrival = start_time + discrete_expovariate_time(AVG_INTERARRIVAL_TIME)
+def generate_discrete_future_packets():
     for _ in range(PACKETS_TARGET):
-        arrival_times.append(packet_arrival)
-        packet_arrival += discrete_expovariate_time(AVG_INTERARRIVAL_TIME)
+        if len(Packets) == 0:
+            arrival_date = discrete_expovariate_time(AVG_INTERARRIVAL_TIME)
+            service_start_date = arrival_date
+        else:
+            arrival_date += discrete_expovariate_time(AVG_INTERARRIVAL_TIME)
+            service_start_date = max(arrival_date, Packets[-1].service_end_date)
 
-    return arrival_times
+        service_time = discrete_expovariate_time(AVG_SERVICE_TIME)
 
+        Packets.append(Packet(arrival_date, service_start_date, service_time))
 
-future_events = generate_discrete_future_packet_arrival_times()
+Packets = []
+bucket = TokenBucket(80)
+
+generate_discrete_future_arrival_date_times()
 master_clock = 0
+
 wait_times = []
 serviced_times = []
 busy = False
+
 
 while len(future_events) > 0 or busy == True:
     if not(busy):
