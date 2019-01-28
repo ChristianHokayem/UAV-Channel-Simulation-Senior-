@@ -1,5 +1,5 @@
 from time import time
-from heapq import heappush, heapify
+from heapq import heappush, heapify, heappop
 import argparse
 
 from Packet import Packet
@@ -21,10 +21,10 @@ print("LAMBDA:", LAMBDA)
 TIME_ADVANCE = 1e-6  # in time unit
 AVG_INTERARRIVAL_TIME = 1/LAMBDA  # in time unit
 AVG_SERVICE_TIME = 1/250  # in time unit
-PACKETS_TARGET = 1000  # number of packets to simulate)
+PACKETS_TARGET = 1000000  # number of packets to simulate)
 
-RESOURCE_ALLOCATION = {1: 50, 2: 30, 3: 15, 4: 10}
-MAX_TOKENS = 80
+RESOURCE_ALLOCATION = {1: 1, 2: 1, 3: 1, 4: 1}
+MAX_TOKENS = 1
 
 future_events = generate_discrete_future_packet_arrivals(PACKETS_TARGET, TIME_ADVANCE,
                                                           AVG_INTERARRIVAL_TIME, 1.5 * AVG_SERVICE_TIME)
@@ -37,9 +37,9 @@ bucket = TokenBucket(MAX_TOKENS)
 
 while len(future_events) > 0:
 
-    while len(future_events) > 0 and future_events[0].time <= master_clock:
+    if future_events[0].time <= master_clock:
 
-        current_event = future_events.pop(0)
+        current_event = heappop(future_events)
 
         if current_event.type == Event.type_to_num['arrival']:
             buffer.add_packet(current_event.reference_packet)
@@ -47,6 +47,9 @@ while len(future_events) > 0:
         elif current_event.type == Event.type_to_num['service end']:
             current_event.reference_packet.service_end_time = master_clock
             bucket.return_resource(RESOURCE_ALLOCATION[current_event.reference_packet.priority])
+
+    if len(future_events) > 0 and future_events[0].time == master_clock:
+        continue
 
     if len(buffer.queue) == 0:
         if len(future_events) > 0:
@@ -73,6 +76,7 @@ while len(future_events) > 0:
 
 
 waits = [p.service_end_time - p.arrival_time for p in Packet.Packets]
+print(waits)
 print("AVERAGE TOTAL WAIT TIME: " + str((sum(waits)/len(waits))*TIME_ADVANCE))
 
 END_TIME = time()
