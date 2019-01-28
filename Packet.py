@@ -1,4 +1,5 @@
 class Packet:
+
     Packets = []
 
     def __init__(self, arrival_time, deadline, priority):
@@ -9,3 +10,15 @@ class Packet:
         self.wait = None
         self.priority = priority
         Packet.Packets.append(self)
+
+    def __lt__(self, other):
+        return self.priority < other.priority
+
+    def __gt__(self, other):
+        return self.priority < other.priority
+
+    def __le__(self, other):
+        return self.priority <= other.priority
+
+    def __ge__(self, other):
+        return self.priority >= other.priority

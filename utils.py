@@ -19,6 +19,6 @@ def generate_discrete_future_packet_arrivals(packets_target, time_advance, avg_i
         current_time = arrival_time
         deadline = current_time + discrete_expovariate_time(avg_deadline, time_advance)
         new_packet = Packet(arrival_time, deadline, priority)
-        future_arrivals.append(Event(arrival_time, Event.type_to_num('arrival'), new_packet))
+        future_arrivals.append(Event(arrival_time, Event.type_to_num['arrival'], new_packet))
 
     return future_arrivals
