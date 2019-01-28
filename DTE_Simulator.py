@@ -1,7 +1,9 @@
-from random import expovariate
-from random import randint
 from time import time
 import argparse
+
+from Event import Event
+from TokenBucket import TokenBucket
+from utils import generate_discrete_future_packet_arrivals
 
 parent_parser = argparse.ArgumentParser(add_help=False)
 parent_parser.add_argument('LAMBDA', type=float)
@@ -13,68 +15,17 @@ print("\n"*2)
 print("-"*10)
 print("LAMBDA:", LAMBDA)
 
-TIME_ADVANCE = 1e-6 #in time unit
-AVG_INTERARRIVAL_TIME = 1/LAMBDA #in time unit
-AVG_SERVICE_TIME = 1/250 #in time unit
-PACKETS_TARGET = 5 #number of pcakets to simulate
+TIME_ADVANCE = 1e-6  # in time unit
+AVG_INTERARRIVAL_TIME = 1/LAMBDA  # in time unit
+AVG_SERVICE_TIME = 1/250  # in time unit
+PACKETS_TARGET = 5  # number of packets to simulate
+RESOURCE_ALLOCATION = {1: 50, 2: 30, 3: 15, 4: 10}
 
-
-class TokenBucket:
-    def __init__(self, tokens):
-        self.capacity = float(tokens)
-        self.available_tokens = float(tokens)
-
-    def consume(self, number_of_tokens):
-        if number_of_tokens <= self.available_tokens:
-            self.available_tokens -= number_of_tokens
-        else:
-            return False
-        return True
-
-    def return_resource(selfself, number_of_tokens):
-        self.available_tokens += number_of_tokens
-
-
-class Packet:
-    def __init__(self, arrival_date, service_start_date, service_time, priority):
-        self.arrival_date = arrival_date
-        self.service_start_date = service_start_date
-        self.service_time = service_time
-        self.service_end_date = self.service_start_date + self.service_time
-        self.wait = self.service_start_date - self.arrival_date
-        self.priority = priority
-
-
-def discrete_expovariate_time(mean):
-    global TIME_ADVANCE
-    return round(expovariate(1/mean)/TIME_ADVANCE)
-
-
-def generate_discrete_future_packets():
-    resource_allocation = {1: 50, 2: 30, 3: 15, 4: 10}
-
-    for _ in range(PACKETS_TARGET):
-        priority = randint(1, 4)
-
-        if len(Packets) == 0:
-            arrival_date = discrete_expovariate_time(AVG_INTERARRIVAL_TIME)
-            service_start_date = arrival_date
-            if not bucket.consume(resource_allocation[priority]):
-                continue
-        else:
-            arrival_date += discrete_expovariate_time(AVG_INTERARRIVAL_TIME)
-            service_start_date = max(arrival_date, Packets[-1].service_end_date)
-
-        service_time = discrete_expovariate_time(AVG_SERVICE_TIME)
-
-        Packets.append(Packet(arrival_date, service_start_date, service_time, priority))
-        bucket.return_resource(resource_allocation[priority])
-
-
-Packets = []
+future_events = []
 bucket = TokenBucket(80)
 
-generate_discrete_future_packets()
+future_events += generate_discrete_future_packet_arrivals(PACKETS_TARGET, TIME_ADVANCE,
+                                                          AVG_INTERARRIVAL_TIME, 1.5 * AVG_SERVICE_TIME)
 
 # while len(future_events) > 0 or busy == True:
 #     if not(busy):
@@ -97,8 +48,8 @@ generate_discrete_future_packets()
 #
 #     master_clock += 1
 
-Waits = [a.wait for a in Packets]
-print("AVERAGE TOTAL WAIT TIME: " + str((sum(Waits)/len(Waits))*TIME_ADVANCE))
+#Waits = [a.wait for a in Packets]
+#print("AVERAGE TOTAL WAIT TIME: " + str((sum(Waits)/len(Waits))*TIME_ADVANCE))
 
 END_TIME = time()
 
