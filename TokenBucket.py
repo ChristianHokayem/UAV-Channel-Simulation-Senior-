@@ -6,9 +6,8 @@ class TokenBucket:
     def consume(self, number_of_tokens):
         if number_of_tokens <= self.available_tokens:
             self.available_tokens -= number_of_tokens
-        else:
-            return False
-        return True
+            return True
+        return False
 
     def return_resource(self, number_of_tokens):
         self.available_tokens += number_of_tokens

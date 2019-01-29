@@ -23,3 +23,6 @@ class Packet:
 
     def __ge__(self, other):
         return self.priority >= other.priority
+
+    def __str__(self):
+        return f"Packet ID: {self.id}"
