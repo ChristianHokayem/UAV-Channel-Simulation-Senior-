@@ -1,12 +1,12 @@
 from time import time
-from heapq import heappush, heapify, heappop
+from heapq import heappush, heappop
 import argparse
 
 from Packet import Packet
 from Event import Event
 from PacketBuffer import PacketBuffer
 from TokenBucket import TokenBucket
-from utils import generate_discrete_future_packet_arrivals, discrete_expovariate_time
+from utils import generate_discrete_future_packet_arrivals_heap, discrete_expovariate_time
 
 parent_parser = argparse.ArgumentParser(add_help=False)
 parent_parser.add_argument('LAMBDA', type=float)
@@ -14,9 +14,10 @@ args = parent_parser.parse_args()
 
 START_TIME = time()
 LAMBDA = args.LAMBDA
-print("\n" * 2)
-print("-" * 10)
+
+print("-" * 15)
 print("LAMBDA:", LAMBDA)
+print("-" * 15)
 
 TIME_ADVANCE = 1e-6  # in time unit
 AVG_INTER_ARRIVAL_TIME = 1 / LAMBDA  # in time unit
@@ -27,9 +28,8 @@ PRIORITY_RANGE = (1, 6)
 RESOURCE_ALLOCATION = {1: 6, 2: 15, 3: 25, 4: 50, 5: 75, 6: 100}
 MAX_TOKENS = 100
 
-future_events = generate_discrete_future_packet_arrivals(PACKETS_TARGET, TIME_ADVANCE,
-                                                         AVG_INTER_ARRIVAL_TIME, 1.5 * AVG_SERVICE_TIME, PRIORITY_RANGE)
-heapify(future_events)
+future_events = generate_discrete_future_packet_arrivals_heap(PACKETS_TARGET, TIME_ADVANCE,
+                                                              AVG_INTER_ARRIVAL_TIME, 1.5 * AVG_SERVICE_TIME, PRIORITY_RANGE)
 master_clock = 0
 
 buffer = PacketBuffer()
@@ -46,7 +46,7 @@ while len(future_events) > 0:
 
         elif current_event.type == Event.type_to_num['service end']:
             current_event.reference_packet.service_end_time = master_clock
-            print(f"Packet {current_event.reference_packet.id} serviced.")
+            # print(f"Packet {current_event.reference_packet.id} serviced.")
             bucket.return_resource(RESOURCE_ALLOCATION[current_event.reference_packet.priority])
 
     if len(buffer.queue) == 0:
@@ -55,7 +55,7 @@ while len(future_events) > 0:
         continue
 
     served_packets = []
-    print("Buffer:", buffer)
+    # print("Buffer:", buffer)
 
     for packet in buffer:
         if bucket.consume(RESOURCE_ALLOCATION[packet.priority]):
@@ -74,6 +74,8 @@ while len(future_events) > 0:
 
     master_clock += 1
 
+print("-" * 45)
+
 waits = [p.service_end_time - p.arrival_time for p in Packet.Packets]
 print("AVERAGE TOTAL WAIT TIME: " + str((sum(waits) / len(waits)) * TIME_ADVANCE))
 
@@ -81,4 +83,4 @@ END_TIME = time()
 
 print("SCRIPT TIME:", END_TIME - START_TIME)
 
-print("-" * 10)
+print("-" * 45)
