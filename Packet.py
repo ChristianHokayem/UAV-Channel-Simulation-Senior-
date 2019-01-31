@@ -1,16 +1,16 @@
 class Packet:
 
-    Packets = []
+    packets = []
 
     def __init__(self, arrival_time, deadline, priority):
-        self.id = len(Packet.Packets)
+        self.id = len(Packet.packets)
         self.arrival_time = arrival_time
         self.service_start_time = None
         self.deadline = deadline
         self.service_end_time = None
         self.wait = None
         self.priority = priority
-        Packet.Packets.append(self)
+        Packet.packets.append(self)
 
     def __lt__(self, other):
         return self.priority < other.priority
