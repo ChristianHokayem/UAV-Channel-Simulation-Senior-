@@ -1,0 +1,4 @@
+TIME_ADVANCE = 1e-6  # in time unit
+PACKETS_TARGET = 1000000  # number of packets to simulate)\
+MAX_RESOURCE_BLOCKS = 100
+PRIORITIES_RESOURCE_ALLOCATION = {1: 100, 2: 75, 3: 50, 4: 25, 5: 15, 6: 6}

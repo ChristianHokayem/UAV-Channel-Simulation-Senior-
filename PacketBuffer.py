@@ -4,7 +4,7 @@ class PacketBuffer:
 
     def add_packet(self, packet):
         self.queue.append(packet)
-        self.queue.sort(key=lambda x: x.priority, reverse=True)
+        self.queue.sort(key=lambda x: x.priority)
 
     def remove_packet(self, packet):
         self.queue.remove(packet)
