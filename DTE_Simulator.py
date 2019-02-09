@@ -1,20 +1,17 @@
 from heapq import heappush, heappop
 
 from Event import Event
-from Packet import Packet
-from PacketBuffer import PacketBuffer
-from Simulation_Parameters import TIME_ADVANCE, PACKETS_TARGET, MAX_RESOURCE_BLOCKS, PRIORITIES_RESOURCE_ALLOCATION
+from PacketBuffer import FCFSPacketBuffer, PriorityPacketBuffer, ModifiedPriorityPacketBuffer, EDFPacketBuffer
+from Simulation_Parameters import *
 from TokenBucket import TokenBucket
 from utils import add_future_packet_arrival_events_to_heap, discrete_expovariate_time
 
 
-def run_sim(arrival_rate, service_rate):
-
+def run_sim(arrival_rate, service_rate, queueing_system):
     avg_inter_arrival_time = 1 / arrival_rate  # in time unit
 
-    #  TODO: Replace these dictionaries with a class of priorities!!!
-    priorities_arrival_rates = {1: arrival_rate / 12, 2: 2 * arrival_rate / 12, 3: 2 * arrival_rate / 12,
-                                4: 3 * arrival_rate / 12, 5: 3 * arrival_rate / 12, 6: 2 * arrival_rate / 12}
+    priorities_arrival_rates = {LOW_PRIORITY: PRIORITIES_ARRIVAL_RATE_PROPORTION[LOW_PRIORITY] * arrival_rate,
+                                HIGH_PRIORITY: PRIORITIES_ARRIVAL_RATE_PROPORTION[HIGH_PRIORITY] * arrival_rate}
 
     max_sim_time = PACKETS_TARGET * avg_inter_arrival_time / TIME_ADVANCE
 
@@ -22,17 +19,21 @@ def run_sim(arrival_rate, service_rate):
 
     for priority in priorities_arrival_rates.keys():
         add_future_packet_arrival_events_to_heap(future_events, max_sim_time, TIME_ADVANCE,
-                                                 priorities_arrival_rates[priority], 100, priority)
-
-    print("-" * 15)
-    print("LAMBDA:", arrival_rate)
-    print("MU:", service_rate)
-    print("Packets Generated:", len(Packet.packets))
-    print("-" * 15)
+                                                 priorities_arrival_rates[priority], priority)
 
     master_clock = 0
 
-    buffer = PacketBuffer()
+    if queueing_system == FCFS_QUEUING:
+        buffer = FCFSPacketBuffer()
+    elif queueing_system == PRIORITY_QUEUING:
+        buffer = PriorityPacketBuffer()
+    elif queueing_system == MODIFIED_PRIORITY_QUEUING:
+        buffer = ModifiedPriorityPacketBuffer()
+    elif queueing_system == EDF_QUEUING:
+        buffer = EDFPacketBuffer()
+    else:
+        raise TypeError("UNKNOWN PACKET BUFFER TYPE!")
+
     bucket = TokenBucket(MAX_RESOURCE_BLOCKS)
 
     while len(future_events) > 0:
@@ -45,29 +46,38 @@ def run_sim(arrival_rate, service_rate):
                 buffer.add_packet(current_event.reference_packet)
 
             elif current_event.type == Event.type_to_num['service end']:
-                current_event.reference_packet.service_end_time = master_clock
-                bucket.return_resource(PRIORITIES_RESOURCE_ALLOCATION[current_event.reference_packet.priority])
+                packet = current_event.reference_packet
+                bucket.return_resource(packet.allocated_resources)
+                if packet.deadline >= master_clock:
+                    packet.service_end_time = master_clock
+                else:
+                    pass  # no service end time
 
         if len(buffer.queue) == 0:
             if len(future_events) > 0:
                 master_clock = future_events[0].time
             continue
 
-        served_packets = []
+        has_served_packet = False
+        popped_packet = buffer.pop_packet(bucket.available_tokens)
+        while popped_packet is not None:
+            if popped_packet.deadline >= master_clock:
+                has_served_packet = True
+                start_packet_service(bucket, future_events, master_clock, popped_packet, service_rate)
 
-        for packet in buffer:
-            if bucket.consume(PRIORITIES_RESOURCE_ALLOCATION[packet.priority]):
-                served_packets.append(packet)
-                packet.service_start_time = master_clock
-                heappush(future_events, Event(master_clock + discrete_expovariate_time(service_rate, TIME_ADVANCE),
-                                              Event.type_to_num['service end'], packet))
+            popped_packet = buffer.pop_packet(bucket.available_tokens)
 
-        if len(served_packets) == 0:
+        if not has_served_packet:
             if len(future_events) > 0:
                 master_clock = future_events[0].time
             continue
 
-        for packet in served_packets:
-            buffer.remove_packet(packet)
-
         master_clock += 1
+
+
+def start_packet_service(bucket, future_events, master_clock, popped_packet, service_rate):
+    popped_packet.service_start_time = master_clock
+    popped_packet.allocated_resources = popped_packet.required_resources
+    bucket.consume(popped_packet.allocated_resources)
+    heappush(future_events, Event(master_clock + discrete_expovariate_time(service_rate, TIME_ADVANCE),
+                                  Event.type_to_num['service end'], popped_packet))

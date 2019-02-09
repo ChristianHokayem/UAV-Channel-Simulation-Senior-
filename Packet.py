@@ -1,36 +1,32 @@
+from Simulation_Parameters import LOW_PRIORITY, HIGH_PRIORITY
+
+
 class Packet:
 
-    packets = []
-    packets_priority = {1: [], 2: [], 3: [], 4: [], 5: [], 6: []}
+    packets_by_priority = {LOW_PRIORITY: [], HIGH_PRIORITY: []}
+    packet_counter = 0
 
-    def __init__(self, arrival_time, deadline, priority):
-        self.id = len(Packet.packets)
+    def __init__(self, arrival_time, deadline, priority, required_resources):
+        self.id = Packet.packet_counter
+        Packet.packet_counter += 1
         self.arrival_time = arrival_time
         self.service_start_time = None
         self.deadline = deadline
         self.service_end_time = None
         self.wait = None
+        self.required_resources = required_resources
+        self.allocated_resources = None
         self.priority = priority
-        Packet.packets_priority[priority].append(self)
-        Packet.packets.append(self)
+        Packet.packets_by_priority[priority].append(self)
 
     @staticmethod
     def clear_packets():
-        Packet.packets = []
-        for packet_priority in Packet.packets_priority.keys():
-            Packet.packets_priority[packet_priority] = []
-
-    def __lt__(self, other):
-        return self.priority < other.priority
-
-    def __gt__(self, other):
-        return self.priority > other.priority
-
-    def __le__(self, other):
-        return self.priority <= other.priority
-
-    def __ge__(self, other):
-        return self.priority >= other.priority
+        Packet.packet_counter = 0
+        for packet_priority in Packet.packets_by_priority.keys():
+            Packet.packets_by_priority[packet_priority] = []
 
     def __str__(self):
         return f"Packet ID: {self.id}"
+
+    def __lt__(self, other):
+        return self.priority < other.priority
