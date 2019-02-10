@@ -1,0 +1,4 @@
+Do you ditch a packet before serving it if its deadline has expired?
+Would it make sense to take less resources than required (required 100, available 98, take 75 resource blocks!)
+
+NO PREMATURE DEPARTURE CURRENTLY

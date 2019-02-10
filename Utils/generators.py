@@ -1,7 +1,7 @@
 from heapq import heappush
 from random import expovariate, choice, uniform
 from Simulation_Parameters import *
-from Event import Event
+from Event_Simulation.Event import Event
 from Packet import Packet
 
 
