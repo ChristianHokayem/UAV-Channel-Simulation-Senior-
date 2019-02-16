@@ -59,7 +59,6 @@ def run_sim(arrival_rate, queueing_system):
     has_served_packet = False
     popped_packet = buffer.pop_packet(bucket.available_tokens)
     while popped_packet is not None:
-      # TODO: POSSIBLE PREMATURE DEPARTURE | if popped_packet.deadline >= master_clock:
       has_served_packet = True
       start_packet_service(bucket, future_events, master_clock, popped_packet)
 

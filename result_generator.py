@@ -2,10 +2,10 @@ from Event_Simulation.DTE_Simulator import run_sim
 from Simulation_Parameters import *
 from Packet.Packet import Packet
 
-OUTPUT_FILE_NAME = 'idk.csv'
+OUTPUT_FILE_NAME = 'output.csv'
 
 
-def output_formatted_results(a_list):
+def return_formatted_output_results(a_list):
   return_string = ""
 
   for item in a_list:
@@ -15,16 +15,21 @@ def output_formatted_results(a_list):
   return return_string
 
 
-def create_header():
-  header = output_formatted_results(["Lambda", "Generated Packets", "Avg Total Wait"])
-
+def output_header():
+  header = ["Lambda", "Generated Packets"]
+  for i in PACKET_QCI_DICT:
+    header.append(f"Q{i}#")
+    header.append(f"Q{i} Avg Wait")
+    header.append(f"Q{i} Drop Rate")
   with open(OUTPUT_FILE_NAME, 'w') as output_file:
-    output_file.write(header)
+    output_file.write(return_formatted_output_results(header))
 
 
-#create_header()
+output_header()
 
-for LAMBDA in range(4600, 5500, 100):
+for LAMBDA in [2500]:
+  ordered_packet_qci_stats = []
+
   print()
   simulation_start_string = f"Running simulation with lambda = {LAMBDA}"
   print("*" * len(simulation_start_string))
@@ -37,17 +42,22 @@ for LAMBDA in range(4600, 5500, 100):
   print("Packets Generated:", Packet.packet_counter)
 
   for packet_qci in Packet.packets_by_qci:
+    number_of_packets = len(Packet.packets_by_qci[packet_qci])
+    average_wait = (sum(i.service_end_time - i.arrival_time
+                        for i in Packet.packets_by_qci[packet_qci] if i.service_end_time is not None)
+                    / len(Packet.packets_by_qci[packet_qci])) * TIME_ADVANCE
+    drop_rate = len([i for i in Packet.packets_by_qci[packet_qci] if i.service_end_time is None]) / number_of_packets
+
     print("---")
     print(f"QCI = {packet_qci}:")
-    print((sum(i.service_end_time - i.arrival_time
-               for i in Packet.packets_by_qci[packet_qci] if i.service_end_time is not None)
-          / len(Packet.packets_by_qci[packet_qci]))*TIME_ADVANCE)
+    print(f"# of packets: {number_of_packets}")
+    print(f"Average wait: {average_wait}")
+    print("Drop rate: {:.4%}".format(drop_rate))
+    ordered_packet_qci_stats.append(number_of_packets)
+    ordered_packet_qci_stats.append(average_wait)
+    ordered_packet_qci_stats.append(drop_rate)
 
-    print("Drop rate: {:.6}".format((len([i for i in Packet.packets_by_qci[packet_qci] if i.service_end_time is None])
-          / len(Packet.packets_by_qci[packet_qci]))*TIME_ADVANCE))
-
-#  with open(OUTPUT_FILE_NAME, 'a') as outfile:
-#    outfile.write(output_formatted_results([LAMBDA, Packet.packet_counter, average_total_wait_time])
-#                  )
+  with open(OUTPUT_FILE_NAME, 'a') as outfile:
+    outfile.write(return_formatted_output_results([LAMBDA, Packet.packet_counter] + ordered_packet_qci_stats))
 
   Packet.clear_packets()
