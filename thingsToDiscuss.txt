@@ -1,4 +1,14 @@
 Do you ditch a packet before serving it if its deadline has expired?
 Would it make sense to take less resources than required (required 100, available 98, take 75 resource blocks!)
 
-NO PREMATURE DEPARTURE CURRENTLY
+NO PREMATURE DEPARTURE CURRENTLY - Non-work conserving
+can distinguish between two losses:
+-loss on arrival (balking) (no space in queue or expects high waiting time)
+-loss on deadline expiry in the queue (reneging)
+
+we'll keep track of these losses, but go with a work conserving approach
+(for a better user experience: not dropping users prematurely)
+
+FDD LTE System
+
+2-300ms

@@ -1,12 +1,12 @@
-from Simulation_Parameters import LOW_PRIORITY, HIGH_PRIORITY
+from Simulation_Parameters import PACKET_QCI_DICT
 
 
 class Packet:
 
-    packets_by_priority = {LOW_PRIORITY: [], HIGH_PRIORITY: []}
+    packets_by_qci = {qci: [] for qci in PACKET_QCI_DICT}
     packet_counter = 0
 
-    def __init__(self, arrival_time, deadline, priority, required_resources):
+    def __init__(self, arrival_time, deadline, priority, required_resources, qci):
         self.id = Packet.packet_counter
         Packet.packet_counter += 1
         self.arrival_time = arrival_time
@@ -17,13 +17,14 @@ class Packet:
         self.required_resources = required_resources
         self.allocated_resources = None
         self.priority = priority
-        Packet.packets_by_priority[priority].append(self)
+        self.qci = qci
+        Packet.packets_by_qci[qci.qci].append(self)
 
     @staticmethod
     def clear_packets():
         Packet.packet_counter = 0
-        for packet_priority in Packet.packets_by_priority.keys():
-            Packet.packets_by_priority[packet_priority] = []
+        for packet_qci in Packet.packets_by_qci:
+            Packet.packets_by_qci[packet_qci] = []
 
     def __str__(self):
         return f"Packet ID: {self.id}"
