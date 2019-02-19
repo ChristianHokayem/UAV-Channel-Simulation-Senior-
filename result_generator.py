@@ -1,8 +1,6 @@
 from Event_Simulation.DTE_Simulator import run_sim
-from Simulation_Parameters import *
 from Packet.Packet import Packet
-
-OUTPUT_FILE_NAME = 'output.csv'
+from simulation_parameters import *
 
 
 def return_formatted_output_results(a_list):
@@ -27,7 +25,7 @@ def output_header():
 
 output_header()
 
-for LAMBDA in [2500]:
+for LAMBDA in LAMBDA_SIMULATION_RANGE:
   ordered_packet_qci_stats = []
 
   print()
@@ -36,7 +34,7 @@ for LAMBDA in [2500]:
   print(simulation_start_string)
   print("*" * len(simulation_start_string))
 
-  run_sim(LAMBDA, PRIORITY_QUEUING)
+  run_sim(LAMBDA, QUEUING_SYSTEM)
 
   print("LAMBDA:", LAMBDA)
   print("Packets Generated:", Packet.packet_counter)

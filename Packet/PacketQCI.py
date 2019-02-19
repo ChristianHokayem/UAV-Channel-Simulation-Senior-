@@ -1,8 +1,7 @@
 class PacketQCI:
-  def __init__(self, qci, is_gbr, priority, budget, proportional_lambda, description):
-    self.isGBR = is_gbr
+  def __init__(self, qci, priority, delay_budget, proportional_lambda, description):
     self.priority = priority
-    self.budget = budget
+    self.delay_budget = delay_budget
     self.qci = qci
     self.proportional_lambda = proportional_lambda
     self.description = description

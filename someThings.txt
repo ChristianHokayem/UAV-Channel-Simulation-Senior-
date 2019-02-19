@@ -1,0 +1,17 @@
+Voice call about 1 MB per minute, so 16.667 kbps
+cisco -> 80 kbps best, 19 kbps worst
+http://www.ciscopress.com/articles/article.asp?p=471096&seqNum=6
+video -> 384 kbps, up to 600 kbps
+460kbps guaranteed bandwidth
+for gaming: 3Mbps down and 500 kbps up
+https://www.evdodepotusa.com/speed-latency-required-online-gaming-4g-lte/
+for IMS signaling: packet 278 to 668 Bytes
+the rest: very diverse can have different requirements
+
+1 RB LTE: 168kbps -> 1.008 MBps
+
+Voice is always 1 RB
+Video: 1 -> 4 RB
+Gaming: 3 -> 18 RB
+IMS: 1 RB
+TCP: 1 -> 50 RB

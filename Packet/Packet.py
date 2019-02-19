@@ -1,4 +1,4 @@
-from Simulation_Parameters import PACKET_QCI_DICT
+from simulation_parameters import PACKET_QCI_DICT
 
 
 class Packet:
@@ -15,7 +15,6 @@ class Packet:
         self.service_end_time = None
         self.wait = None
         self.required_resources = required_resources
-        self.allocated_resources = None
         self.priority = qci.priority
         self.qci = qci
         Packet.packets_by_qci[qci.qci].append(self)

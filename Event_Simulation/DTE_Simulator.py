@@ -2,9 +2,13 @@ from heapq import heappush, heappop
 
 from Event_Simulation.Event import Event
 from Packet.PacketBuffer import FCFSPacketBuffer, PriorityPacketBuffer, ModifiedPriorityPacketBuffer, EDFPacketBuffer
-from Simulation_Parameters import *
 from Packet.TokenBucket import TokenBucket
+from simulation_parameters import *
 from Utils.generators import add_future_packet_arrival_events_to_heap
+
+
+if round(sum(PACKET_QCI_DICT[i].proportional_lambda for i in PACKET_QCI_DICT), 3) != 1:
+  raise ValueError("Sum of proportional arrival rates does not equal 1.000")
 
 
 def run_sim(arrival_rate, queueing_system):
@@ -45,7 +49,7 @@ def run_sim(arrival_rate, queueing_system):
 
       elif current_event.type == Event.type_to_num['service end']:
         packet = current_event.reference_packet
-        bucket.return_resource(packet.allocated_resources)
+        bucket.return_resource(packet.required_resources)
         if packet.deadline >= master_clock:
           packet.service_end_time = master_clock
         else:
@@ -74,11 +78,10 @@ def run_sim(arrival_rate, queueing_system):
 
 def start_packet_service(bucket, future_events, master_clock, popped_packet):
   popped_packet.service_start_time = master_clock
-  popped_packet.allocated_resources = popped_packet.required_resources
-  bucket.consume(popped_packet.allocated_resources)
+  bucket.consume(popped_packet.required_resources)
   heappush(future_events, generate_packet_service_event(master_clock, popped_packet))
 
 
 def generate_packet_service_event(master_clock, popped_packet):
-  return Event(master_clock + (PACKET_SIZE / (ONE_RB_SPEED * popped_packet.allocated_resources)) / TIME_ADVANCE,
+  return Event(master_clock + (PACKET_SIZE / (ONE_RB_SPEED * popped_packet.required_resources)) / TIME_ADVANCE,
                Event.type_to_num['service end'], popped_packet)
