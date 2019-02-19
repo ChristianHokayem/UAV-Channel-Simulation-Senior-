@@ -1,5 +1,5 @@
 from heapq import heappush, heappop
-from Simulation_Parameters import HIGH_PRIORITY, LOW_PRIORITY
+from simulation_parameters import PACKET_QCI_DICT
 from abc import ABC, abstractmethod
 
 
@@ -15,22 +15,19 @@ class PacketBuffer(ABC):
 
 class PriorityPacketBuffer(PacketBuffer):
     def __init__(self):
-        self.queue = {HIGH_PRIORITY: [], LOW_PRIORITY: []}
+        self.queue = {i: [] for i in PACKET_QCI_DICT}
 
     def add_packet(self, packet):
-        heappush(self.queue[packet.priority],
+        heappush(self.queue[packet.qci.qci],
                  (packet.arrival_time, packet))
 
     def __select_sub_queue_to_be_serviced_by_priority__(self, available_resources):
-        if self.queue[HIGH_PRIORITY]:
-            if available_resources >= self.queue[HIGH_PRIORITY][0][1].required_resources:
-                return HIGH_PRIORITY
-            else:
-                return None
-
-        elif self.queue[LOW_PRIORITY]:
-            if available_resources >= self.queue[LOW_PRIORITY][0][1].required_resources:
-                return LOW_PRIORITY
+        for qci in self.queue:
+            if self.queue[qci]:
+                if available_resources >= self.queue[qci][0][1].required_resources:
+                    return qci
+                else:
+                    return None
 
         return None
 
@@ -44,20 +41,17 @@ class PriorityPacketBuffer(PacketBuffer):
 #  similar to priority packet buffer but lets low priority packets pass when high priority are blocked
 class ModifiedPriorityPacketBuffer(PacketBuffer):
     def __init__(self):
-        self.queue = {HIGH_PRIORITY: [], LOW_PRIORITY: []}
+        self.queue = {i: [] for i in PACKET_QCI_DICT}
 
     def add_packet(self, packet):
-        heappush(self.queue[packet.priority],
+        heappush(self.queue[packet.qci.qci],
                  (packet.arrival_time, packet))
 
     def __select_sub_queue_to_be_serviced_by_priority__(self, available_resources):
-        if self.queue[HIGH_PRIORITY]:
-            if available_resources >= self.queue[HIGH_PRIORITY][0][1].required_resources:
-                return HIGH_PRIORITY
-        elif self.queue[LOW_PRIORITY]:
-            if available_resources >= self.queue[LOW_PRIORITY][0][1].required_resources:
-                return LOW_PRIORITY
-
+        for qci in self.queue:
+            if self.queue[qci]:
+                if available_resources >= self.queue[qci][0][1].required_resources:
+                    return qci
         return None
 
     def pop_packet(self, available_resources):
