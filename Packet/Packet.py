@@ -6,7 +6,7 @@ class Packet:
     packets_by_qci = {qci: [] for qci in PACKET_QCI_DICT}
     packet_counter = 0
 
-    def __init__(self, arrival_time, deadline, required_resources, qci):
+    def __init__(self, arrival_time, deadline, required_resources, qci, snr):
         self.id = Packet.packet_counter
         Packet.packet_counter += 1
         self.arrival_time = arrival_time
@@ -15,6 +15,7 @@ class Packet:
         self.service_end_time = None
         self.wait = None
         self.required_resources = required_resources
+        self.snr = snr
         self.priority = qci.priority
         self.qci = qci
         Packet.packets_by_qci[qci.qci].append(self)
