@@ -20,17 +20,17 @@ def run_sim(arrival_rate, queueing_system):
   for packet_qci in PACKET_QCI_DICT:
     add_future_packet_arrival_events_to_heap(future_events, max_sim_time, TIME_ADVANCE,
                                              PACKET_QCI_DICT[packet_qci].proportional_lambda * arrival_rate,
-                                             PACKET_QCI_DICT[packet_qci])
+                                             PACKET_QCI_DICT[packet_qci], DISTANCE_SCALE_PARAMETER)
 
   master_clock = 0
 
-  if queueing_system == FCFS_QUEUING:
+  if queueing_system == QueueingModel.FCFS_QUEUING:
     buffer = FCFSPacketBuffer()
-  elif queueing_system == PRIORITY_QUEUING:
+  elif queueing_system == QueueingModel.PRIORITY_QUEUING:
     buffer = PriorityPacketBuffer()
-  elif queueing_system == MODIFIED_PRIORITY_QUEUING:
+  elif queueing_system == QueueingModel.MODIFIED_PRIORITY_QUEUING:
     buffer = ModifiedPriorityPacketBuffer()
-  elif queueing_system == EDF_QUEUING:
+  elif queueing_system == QueueingModel.EDF_QUEUING:
     buffer = EDFPacketBuffer()
   else:
     raise TypeError("UNKNOWN PACKET BUFFER TYPE!")

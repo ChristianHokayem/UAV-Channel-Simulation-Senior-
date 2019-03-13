@@ -1,7 +1,13 @@
-FCFS_QUEUING = 0
-PRIORITY_QUEUING = 1
-MODIFIED_PRIORITY_QUEUING = 2
-EDF_QUEUING = 3
+from enum import Enum
 
-RICIAN = 0
-RAYLEIGH = 1
+
+class QueueingModel(Enum):
+  FCFS_QUEUING = 'fcfs'
+  PRIORITY_QUEUING = 'priority'
+  MODIFIED_PRIORITY_QUEUING = 'modified priority'
+  EDF_QUEUING = 'edf'
+
+
+class Fading(Enum):
+  RICIAN = 'rice'
+  RAYLEIGH = 'rayleigh'

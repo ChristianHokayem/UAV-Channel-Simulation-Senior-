@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2bf64d4-b76f-495e-8fda-9695609b1c70" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Utils/packet_servicing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/christian.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Event_Simulation/DTE_Simulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Event_Simulation/DTE_Simulator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packet/Packet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Packet/Packet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Results/Volume 4/edf_drop.png" beforeDir="false" afterPath="$PROJECT_DIR$/Results/Volume 4/edf_drop.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Results/Volume 4/fcfs_drop.png" beforeDir="false" afterPath="$PROJECT_DIR$/Results/Volume 4/fcfs_drop.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Results/Volume 4/priority_drop.png" beforeDir="false" afterPath="$PROJECT_DIR$/Results/Volume 4/priority_drop.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Results/Volume 4/ricevsrayleighplot.m" beforeDir="false" afterPath="$PROJECT_DIR$/Results/Volume 4/ricevsrayleighplot.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utils/generators.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/generators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/packet_servicing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/packet_servicing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/result_generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulation_enums.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_enums.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulation_parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulation_parameters.py" afterDir="false" />
     </list>
@@ -16,67 +23,19 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="senior" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Event_Simulation/DTE_Simulator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="25" selection-start-column="25" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utils/packet_servicing.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="13" column="68" selection-start-line="13" selection-start-column="68" selection-end-line="13" selection-end-column="68" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utils/generators.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/simulation_parameters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="165">
+              <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulation_enums.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Packet/Packet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -117,6 +76,9 @@
       <find>allocated_</find>
       <find>max_rb</find>
       <find>budget</find>
+      <find>.snr</find>
+      <find>compute</find>
+      <find>counter</find>
     </findStrings>
     <replaceStrings>
       <replace>arrival_time</replace>
@@ -140,14 +102,14 @@
         <option value="$PROJECT_DIR$/DTE_Simulator.py" />
         <option value="$PROJECT_DIR$/Packet/PacketBuffer.py" />
         <option value="$PROJECT_DIR$/Simulation_Constants.py" />
-        <option value="$PROJECT_DIR$/result_generator.py" />
         <option value="$PROJECT_DIR$/Simulation_Parameters.py" />
         <option value="$PROJECT_DIR$/Packet/PacketQCI.py" />
-        <option value="$PROJECT_DIR$/Packet/Packet.py" />
-        <option value="$PROJECT_DIR$/Utils/generators.py" />
-        <option value="$PROJECT_DIR$/Event_Simulation/DTE_Simulator.py" />
         <option value="$PROJECT_DIR$/simulation_enums.py" />
+        <option value="$PROJECT_DIR$/Event_Simulation/DTE_Simulator.py" />
         <option value="$PROJECT_DIR$/Utils/packet_servicing.py" />
+        <option value="$PROJECT_DIR$/Packet/Packet.py" />
+        <option value="$PROJECT_DIR$/result_generator.py" />
+        <option value="$PROJECT_DIR$/Utils/generators.py" />
         <option value="$PROJECT_DIR$/simulation_parameters.py" />
       </list>
     </option>
@@ -165,7 +127,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -192,6 +153,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,16 +327,16 @@
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
     <layout>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16059479" />
+      <window_info id="Favorites" order="0" sideWeight="0.244373" side_tool="true" weight="0.16059479" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.75562704" visible="true" weight="0.16059479" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.329582" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.329582" />
-      <window_info anchor="bottom" id="Python Console" order="4" weight="0.3681672" />
+      <window_info anchor="bottom" id="Python Console" order="4" weight="0.5378422" />
       <window_info anchor="bottom" id="Version Control" order="5" weight="0.3279743" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.573955" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.29421222" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" weight="0.329582" />
@@ -455,16 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/result_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Packet/PacketBuffer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -477,49 +429,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Event_Simulation/DTE_Simulator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        <state relative-caret-position="375">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/packet_servicing.py">
+    <entry file="file://$PROJECT_DIR$/simulation_enums.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="13" column="68" selection-start-line="13" selection-start-column="68" selection-end-line="13" selection-end-column="68" />
+        <state relative-caret-position="60">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Packet/Packet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="49" lean-forward="true" selection-start-column="49" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="67" column="14" lean-forward="true" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Utils/generators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+        <state relative-caret-position="465">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Packet/Packet.py">
+    <entry file="file://$PROJECT_DIR$/Utils/packet_servicing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulation_enums.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        <state relative-caret-position="500">
+          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/simulation_parameters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="165">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
