@@ -19,6 +19,10 @@ def output_header():
     header.append(f"Q{i}#")
     header.append(f"Q{i} Avg Wait")
     header.append(f"Q{i} Drop Rate")
+
+  header.append("Total Avg Wait Time")
+  header.append("Total Avg Drop Rate")
+
   with open(OUTPUT_FILE_NAME, 'w') as output_file:
     output_file.write(return_formatted_output_results(header))
 
@@ -37,7 +41,7 @@ for LAMBDA in LAMBDA_SIMULATION_RANGE:
   run_sim(LAMBDA, QUEUING_SYSTEM)
 
   print("LAMBDA:", LAMBDA)
-  print("Packets Generated:", Packet.packet_counter)
+  print("Packets Generated:", len(Packet.all_packets))
 
   for packet_qci in Packet.packets_by_qci:
     number_of_packets = len(Packet.packets_by_qci[packet_qci])
@@ -55,7 +59,17 @@ for LAMBDA in LAMBDA_SIMULATION_RANGE:
     ordered_packet_qci_stats.append(average_wait)
     ordered_packet_qci_stats.append(drop_rate)
 
+  total_average_wait = TIME_ADVANCE*sum(
+    i.service_end_time - i.arrival_time for i in Packet.all_packets if i.service_end_time is not None) / len(Packet.all_packets)
+  total_drop_rate = len([i for i in Packet.all_packets if i.service_end_time is None]) / len(Packet.all_packets)
+  ordered_packet_qci_stats.append(total_average_wait)
+  ordered_packet_qci_stats.append(total_drop_rate)
+
+  print("---")
+  print(f"Average wait: {total_average_wait}")
+  print("Average Drop rate: {:.4%}".format(total_drop_rate))
+
   with open(OUTPUT_FILE_NAME, 'a') as outfile:
-    outfile.write(return_formatted_output_results([LAMBDA, Packet.packet_counter] + ordered_packet_qci_stats))
+    outfile.write(return_formatted_output_results([LAMBDA, len(Packet.all_packets)] + ordered_packet_qci_stats))
 
   Packet.clear_packets()
