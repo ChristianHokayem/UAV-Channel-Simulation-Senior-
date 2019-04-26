@@ -1,0 +1,32 @@
+Elaborate on the formulas used reference + numbers meaning
+Figure 2:   What if we used semilogy
+            Take only A2G: 10, 100, 145, 280
+            Multiple line styles
+Figure 3: Increased font size
+            Move legend from covering the lines
+            G2G: UE-RN RN-BS
+            If too many figures
+            For low snr noise is dominant so capacity is not deeply affected
+            while for high snr fading starts having an effect
+
+FCFS, EDF, Priority: Try to draw flowcharts
+Examples of where they are used in applications
+
+Figure 5 -> split to two figures with a, b, c
+Add insight into why EDF is in the middle for instance
+ADD AVERAGE WAIT TIMES AND DROP RATES
+
+aggregate packet arrivals* -> aggregate packet
+NO TITLE ON TOP OF FIGURES
+Always below
+Add markers for each discrete point
+
+Figure 11 drop rate, clean it to show trend
+OR DROP IT COMPLETELY AS IT GIVES NO ADDITIONAL INSIGHT
+
+
+Elaborate more on the trend
+
+Figure 14 try to merge them
+
+Try to explicitly link the capacity in Figure 10 to other Figures
