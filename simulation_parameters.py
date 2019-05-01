@@ -12,7 +12,7 @@ PACKETS_TARGET = 1000000  # number of packets to simulate
 MAX_SCHEDULING_BLOCKS = 50
 AVERAGE_REQUIRED_RESOURCE_BLOCKS = MAX_SCHEDULING_BLOCKS/2
 
-LAMBDA_SIMULATION_RANGE = [1, 100] + list(range(500, 7000, 500)) + list(range(7000, 10001, 100))
+LAMBDA_SIMULATION_RANGE = [1] + list(range(500, 7000, 500)) + list(range(7000, 10001, 100))
 QUEUING_SYSTEM = QueueingModel.FCFS_QUEUING
 FADING = Fading.RICIAN
 HEIGHT = 40
@@ -20,10 +20,10 @@ HEIGHT = 40
 K_options = {10: 3.533, 25: 10.120, 40: 10.048}
 K = K_options[HEIGHT]
 
-OUTPUT_FILE_NAME = QUEUING_SYSTEM.value + '-' + FADING.value + '-HEIGHT = ' + str(HEIGHT) + '-EQUAL.csv'
+OUTPUT_FILE_NAME = QUEUING_SYSTEM.value + '-' + FADING.value + '-HEIGHT = ' + str(HEIGHT) + '-realtime.csv'
 
 
-PACKET_QCI_DICT = {1: PacketQCI(1, 1, 0.075/2, proportional_lambda=1/3, description="Real-Time Services"),
-                   2: PacketQCI(2, 2, 0.125/2, proportional_lambda=1/3, description="Conversational Services"),
-                   3: PacketQCI(3, 3, 0.300/2, proportional_lambda=1/3, description="Background Services")
+PACKET_QCI_DICT = {1: PacketQCI(1, 1, 0.075/2, proportional_lambda=0.8, description="Real-Time Services"),
+                   2: PacketQCI(2, 2, 0.125/2, proportional_lambda=0.1, description="Conversational Services"),
+                   3: PacketQCI(3, 3, 0.300/2, proportional_lambda=0.1, description="Background Services")
                    }

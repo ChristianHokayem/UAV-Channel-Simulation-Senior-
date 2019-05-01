@@ -73,3 +73,6 @@ for LAMBDA in LAMBDA_SIMULATION_RANGE:
     outfile.write(return_formatted_output_results([LAMBDA, len(Packet.all_packets)] + ordered_packet_qci_stats))
 
   Packet.clear_packets()
+
+  if total_drop_rate > 0.2:
+    break

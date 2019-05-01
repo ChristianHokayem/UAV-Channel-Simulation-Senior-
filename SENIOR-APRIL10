@@ -1,11 +1,11 @@
 Elaborate on the formulas used reference + numbers meaning
-Figure 2:   What if we used semilogy
-            Take only A2G: 10, 100, 145, 280
-            Multiple line styles
-Figure 3: Increased font size
-            Move legend from covering the lines
-            G2G: UE-RN RN-BS
-            If too many figures
+=Figure 2:   What if we used semilogy
+#            Take only A2G: 10, 100, 145, 280
+#            Multiple line styles
+#Figure 3: Increased font size
+#            Move legend from covering the lines
+=            G2G: UE-RN RN-BS
+?            If too many figures
             For low snr noise is dominant so capacity is not deeply affected
             while for high snr fading starts having an effect
 
