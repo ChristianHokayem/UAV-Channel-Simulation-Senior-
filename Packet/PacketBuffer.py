@@ -1,5 +1,5 @@
 from heapq import heappush, heappop
-from simulation_parameters import PACKET_QCI_DICT
+from Packet.PacketQCI import PACKET_QCI_DICT
 from abc import ABC, abstractmethod
 
 

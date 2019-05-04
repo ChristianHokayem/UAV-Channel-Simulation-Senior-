@@ -1,4 +1,4 @@
-from simulation_parameters import PACKET_QCI_DICT
+from Packet.PacketQCI import PACKET_QCI_DICT
 
 
 class Packet:
@@ -6,7 +6,7 @@ class Packet:
     packets_by_qci = {qci: [] for qci in PACKET_QCI_DICT}
     all_packets = []
 
-    def __init__(self, arrival_time, deadline, required_resources, qci, distance):
+    def __init__(self, arrival_time, deadline, required_resources, qci, distance, size):
         self.id = len(Packet.all_packets)
         self.arrival_time = arrival_time
         self.service_start_time = None
@@ -17,6 +17,7 @@ class Packet:
         self.distance = distance
         self.priority = qci.priority
         self.qci = qci
+        self.size = size
         Packet.packets_by_qci[qci.qci].append(self)
         Packet.all_packets.append(self)
 
