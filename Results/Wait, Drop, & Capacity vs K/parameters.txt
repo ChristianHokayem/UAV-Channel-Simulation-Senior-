@@ -1,0 +1,7 @@
+Packets of 1 bit
+1 scheduling block (180KHz)
+exponentially distributed deadline (mean = 0.075/4 s)
+Rician fading
+Fixed path loss; Pr_avg = 8.6e-11
+1,000,000 realisation per k for average channel capacity
+100,000 to 1,000,000 packets per k for average wait time / drop rate vs k

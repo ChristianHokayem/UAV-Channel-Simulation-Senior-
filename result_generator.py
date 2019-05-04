@@ -1,6 +1,27 @@
 from Event_Simulation.DTE_Simulator import run_sim
 from Packet.Packet import Packet
-from simulation_parameters import *
+from Packet.PacketQCI import PACKET_QCI_DICT
+from Event_Simulation.simulation_enums import QueueingModel, Fading
+
+PACKET_SIZE = 1500 * 8  # 1.5kB packets
+RB_BANDWIDTH = 180e3  # typical OFDM sub-band
+N0_DB = -204  # -174 dBm/Hz typical noise level
+DISTANCE_SCALE_PARAMETER = 125
+TRANSMIT_POWER_DB = 0
+
+TIME_ADVANCE = 1e-6  # in time unit
+PACKETS_TARGET = 100  # approximate number of packets to simulate
+MAX_SCHEDULING_BLOCKS = 50
+
+LAMBDA_SIMULATION_RANGE = [1] + list(range(500, 7000, 500)) + list(range(7000, 10001, 100))
+QUEUING_SYSTEM = QueueingModel.EDF_QUEUING
+FADING = Fading.RICIAN
+HEIGHT = 10
+
+K_options = {10: 3.533, 25: 10.120, 40: 10.048}
+K = K_options[HEIGHT]
+
+OUTPUT_FILE_NAME = QUEUING_SYSTEM.value + '-' + FADING.value + '-h=' + str(HEIGHT) + '.csv'
 
 
 def return_formatted_output_results(a_list):
@@ -28,6 +49,7 @@ def output_header():
 
 
 output_header()
+Packet.clear_packets()
 
 for LAMBDA in LAMBDA_SIMULATION_RANGE:
   ordered_packet_qci_stats = []
@@ -38,7 +60,8 @@ for LAMBDA in LAMBDA_SIMULATION_RANGE:
   print(simulation_start_string)
   print("*" * len(simulation_start_string))
 
-  run_sim(LAMBDA, QUEUING_SYSTEM)
+  run_sim(LAMBDA, QUEUING_SYSTEM, N0_DB, RB_BANDWIDTH, PACKET_QCI_DICT, PACKET_SIZE, DISTANCE_SCALE_PARAMETER,
+          TIME_ADVANCE, PACKETS_TARGET, MAX_SCHEDULING_BLOCKS, FADING, TRANSMIT_POWER_DB, HEIGHT, K)
 
   print("LAMBDA:", LAMBDA)
   print("Packets Generated:", len(Packet.all_packets))
@@ -59,8 +82,9 @@ for LAMBDA in LAMBDA_SIMULATION_RANGE:
     ordered_packet_qci_stats.append(average_wait)
     ordered_packet_qci_stats.append(drop_rate)
 
-  total_average_wait = TIME_ADVANCE*sum(
-    i.service_end_time - i.arrival_time for i in Packet.all_packets if i.service_end_time is not None) / len(Packet.all_packets)
+  total_average_wait = TIME_ADVANCE * sum(
+    i.service_end_time - i.arrival_time for i in Packet.all_packets if i.service_end_time is not None) / len(
+    Packet.all_packets)
   total_drop_rate = len([i for i in Packet.all_packets if i.service_end_time is None]) / len(Packet.all_packets)
   ordered_packet_qci_stats.append(total_average_wait)
   ordered_packet_qci_stats.append(total_drop_rate)
