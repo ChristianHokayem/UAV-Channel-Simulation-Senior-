@@ -2,72 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2bf64d4-b76f-495e-8fda-9695609b1c70" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/capcalc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.~lock.priority-rayleigh-HEIGHT = 10-AAAAAAHHhhh-EQUAL.csv#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.~lock.priority-rice-HEIGHT = 25-AAAAAAHHhhh-EQUAL.csv#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/edf-rayleigh-HEIGHT = 40-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/edf-rice-HEIGHT = 10-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/edf-rice-HEIGHT = 25-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/edf-rice-HEIGHT = 40-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/fcfs-rayleigh-HEIGHT = 40-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/fcfs-rice-HEIGHT = 10-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/fcfs-rice-HEIGHT = 25-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/fcfs-rice-HEIGHT = 40-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/priority-rayleigh-HEIGHT = 40-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/priority-rice-HEIGHT = 10-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/priority-rice-HEIGHT = 25-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Background Dominance Distribution/priority-rice-HEIGHT = 40-background.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/edf-rayleigh-HEIGHT = 40-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/edf-rice-HEIGHT = 10-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/edf-rice-HEIGHT = 25-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/edf-rice-HEIGHT = 40-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/fcfs-rayleigh-HEIGHT = 40-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/fcfs-rice-HEIGHT = 10-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/fcfs-rice-HEIGHT = 25-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/fcfs-rice-HEIGHT = 40-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/priority-rayleigh-HEIGHT = 40-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/priority-rice-HEIGHT = 10-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/priority-rice-HEIGHT = 25-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conversational Dominance Distribution/priority-rice-HEIGHT = 40-conversational.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/edf-rayleigh-HEIGHT = 10-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/edf-rice-HEIGHT = 10-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/edf-rice-HEIGHT = 25-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/edf-rice-HEIGHT = 40-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/fcfs-rayleigh-HEIGHT = 10-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/fcfs-rice-HEIGHT = 10-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/fcfs-rice-HEIGHT = 25-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/fcfs-rice-HEIGHT = 40-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/priority-rayleigh-HEIGHT = 10-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/priority-rice-HEIGHT = 10-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/priority-rice-HEIGHT = 25-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Equal Distribution/priority-rice-HEIGHT = 40-EQUAL.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Event_Simulation/DTE_Simulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Event_Simulation/DTE_Simulator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packet/Packet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Packet/Packet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packet/PacketBuffer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Packet/PacketBuffer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packet/PacketQCI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Packet/PacketQCI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/edf-rayleigh-HEIGHT = 40-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/edf-rice-HEIGHT = 10-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/edf-rice-HEIGHT = 25-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/edf-rice-HEIGHT = 40-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/fcfs-rayleigh-HEIGHT = 10-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/fcfs-rice-HEIGHT = 10-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/fcfs-rice-HEIGHT = 25-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/fcfs-rice-HEIGHT = 40-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/priority-rayleigh-HEIGHT = 40-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/priority-rice-HEIGHT = 10-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/priority-rice-HEIGHT = 25-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Real Time Dominance Distribution/priority-rice-HEIGHT = 40-realtime.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SENIOR-APRIL10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Untitled Document.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/generators.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/generators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utils/packet_servicing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/packet_servicing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Varying-K-May2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/computed capacity - 1 block.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/result_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_enums.py" beforeDir="false" afterPath="$PROJECT_DIR$/Event_Simulation/simulation_enums.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulation_parameters.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/someThings.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thingsToDiscuss.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Utils/packet_servicing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="119">
+              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -95,21 +32,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Event_Simulation/DTE_Simulator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="25" selection-start-column="25" selection-end-column="25" />
+            <state relative-caret-position="323">
+              <caret line="25" column="22" selection-start-line="25" selection-end-line="26" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/result_generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+            <state>
+              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
-                <element signature="e#1393#1756#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/capcalc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-69">
+              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -117,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Packet/TokenBucket.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="221">
               <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
@@ -189,20 +137,21 @@
         <option value="$PROJECT_DIR$/Simulation_Parameters.py" />
         <option value="$PROJECT_DIR$/Packet/PacketQCI.py" />
         <option value="$PROJECT_DIR$/simulation_enums.py" />
-        <option value="$PROJECT_DIR$/Utils/packet_servicing.py" />
         <option value="$PROJECT_DIR$/Utils/generators.py" />
         <option value="$PROJECT_DIR$/Event_Simulation/DTE_Simulator.py" />
         <option value="$PROJECT_DIR$/simulation_parameters.py" />
         <option value="$PROJECT_DIR$/Packet/Packet.py" />
         <option value="$PROJECT_DIR$/Packet/PacketBuffer.py" />
         <option value="$PROJECT_DIR$/result_generator.py" />
+        <option value="$PROJECT_DIR$/capcalc.py" />
+        <option value="$PROJECT_DIR$/Utils/packet_servicing.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="206" />
-    <option name="width" value="632" />
-    <option name="height" value="730" />
+    <option name="x" value="-7" />
+    <option name="width" value="697" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -217,22 +166,12 @@
         <subPane>
           <expand>
             <path>
-              <item name="senior" type="b2602c69:ProjectViewProjectNode" />
-              <item name="senior" type="462c0819:PsiDirectoryNode" />
+              <item name="Senior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Senior" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="senior" type="b2602c69:ProjectViewProjectNode" />
-              <item name="senior" type="462c0819:PsiDirectoryNode" />
-              <item name="Event_Simulation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="senior" type="b2602c69:ProjectViewProjectNode" />
-              <item name="senior" type="462c0819:PsiDirectoryNode" />
-              <item name="Packet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="senior" type="b2602c69:ProjectViewProjectNode" />
-              <item name="senior" type="462c0819:PsiDirectoryNode" />
+              <item name="Senior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Senior" type="462c0819:PsiDirectoryNode" />
               <item name="Utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -244,7 +183,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../senior_ALT" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -266,7 +205,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.result_generator">
+  <component name="RunManager" selected="Python.capcalc">
     <configuration name="Simulation_Constants" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="senior" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -288,19 +227,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Simulation_Parameters" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="capcalc" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="senior" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="D:\Serge\Documents\PycharmProjects\Testing\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simulation_parameters.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/capcalc.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -374,18 +313,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.Simulation_Constants" />
-      <item itemvalue="Python.Simulation_Parameters" />
       <item itemvalue="Python.packet_servicing" />
       <item itemvalue="Python.result_generator" />
       <item itemvalue="Python.utils" />
+      <item itemvalue="Python.capcalc" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.capcalc" />
         <item itemvalue="Python.result_generator" />
         <item itemvalue="Python.packet_servicing" />
         <item itemvalue="Python.Simulation_Constants" />
         <item itemvalue="Python.utils" />
-        <item itemvalue="Python.Simulation_Parameters" />
       </list>
     </recent_temporary>
   </component>
@@ -412,20 +351,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.2465374" side_tool="true" weight="0.16008936" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.7534626" visible="true" weight="0.25093076" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.7534626" visible="true" weight="0.25074404" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.329582" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5018615" side_tool="true" weight="0.38573745" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32901135" />
-      <window_info anchor="bottom" id="Python Console" order="4" sideWeight="0.4973939" weight="0.41262135" />
+      <window_info anchor="bottom" id="Python Console" order="4" sideWeight="0.4973939" weight="0.41243863" />
       <window_info anchor="bottom" id="Version Control" order="5" weight="0.3273906" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.4981385" weight="0.3517018" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.4981385" visible="true" weight="0.3502455" />
       <window_info anchor="bottom" id="TODO" order="9" sideWeight="0.4996277" weight="0.32901135" />
       <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.4996277" weight="0.5121556" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -476,13 +416,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/max_heap.py" />
     <entry file="file://$PROJECT_DIR$/priority.csv" />
-    <entry file="file://$PROJECT_DIR$/../.PyCharmCE2018.3/system/python_stubs/-1247971762/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="1276" column="8" selection-start-line="1276" selection-start-column="8" selection-end-line="1276" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../.PyCharmCE2018.3/system/python_stubs/-1247971762/builtins.py" />
     <entry file="file://$PROJECT_DIR$/Packet/PacketQCI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -491,13 +425,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Event_Simulation/simulation_enums.py" />
-    <entry file="file://$PROJECT_DIR$/../.local/lib/python3.7/site-packages/scipy/stats/_continuous_distns.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1066" selection-start-line="1066" selection-end-line="1066" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../.local/lib/python3.7/site-packages/scipy/stats/_continuous_distns.py" />
     <entry file="file://$PROJECT_DIR$/Event_Simulation/Event.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -542,37 +470,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/packet_servicing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Event_Simulation/DTE_Simulator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        <state relative-caret-position="323">
+          <caret line="25" column="22" selection-start-line="25" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Packet/TokenBucket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="221">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capcalc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-69">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/result_generator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        <state>
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <element signature="e#1393#1756#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/packet_servicing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

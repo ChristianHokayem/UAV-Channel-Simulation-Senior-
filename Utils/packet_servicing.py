@@ -41,7 +41,8 @@ def compute_rayleigh_capacity(pr_avg, allocated_resource_blocks, rb_noise, rb_ba
 
 def compute_rice_capacity(pr_avg, allocated_resource_blocks, rb_noise, rb_bandwidth, k):
   scale_param = sqrt(pr_avg / (2 * (k + 1)))
-  faded_power = rice.rvs(b=k, scale=scale_param) ** 2
+  b = sqrt(pr_avg*k/(1+k))/scale_param
+  faded_power = rice.rvs(b=b, scale=scale_param) ** 2
   rb_capacity = allocated_resource_blocks * rb_bandwidth * log2(1 + faded_power / rb_noise)
   return rb_capacity
 
